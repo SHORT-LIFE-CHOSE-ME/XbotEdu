@@ -3,6 +3,7 @@ package xbot.edubot.basic_understanding;
 import javax.inject.Inject;
 
 import xbot.common.command.BaseCommand;
+import xbot.common.command.BaseSubsystem;
 
 public class CommandA extends BaseCommand {
 
@@ -10,7 +11,7 @@ public class CommandA extends BaseCommand {
     
     @Inject
     public CommandA(ExampleSubsystem exampleSubsystem) {
-        requires(exampleSubsystem);
+
         this.exampleSubsystem = exampleSubsystem;
     }
     

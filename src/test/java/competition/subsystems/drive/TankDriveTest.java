@@ -24,18 +24,18 @@ public class TankDriveTest extends BaseDriveTest {
         // Push the left and right joystick to fully forward (+1). This should make all
         // motors go to +1,
         // also knows as "full forward"
-        gamepad.setLeftStick(new XYPair(0, 1.0));
-        gamepad.setRightStick(new XYPair(0, 1.0));
+        gamepad.setLeftStick(new XYPair(0, .5));
+        gamepad.setRightStick(new XYPair(0, .5));
         command.execute();
-        assertDrive(1.0, 1.0, "Expect Motors are all forward when both joysticks are completely forward");
+        assertDrive(.5, .5, "Expect Motors are all forward when both joysticks are completely forward");
 
         // Push the left joystick fully backward (-1) and the right joystick fully
         // forward (1). This
         // would make a tank turn!
-        gamepad.setLeftStick(new XYPair(0, -1.0));
-        gamepad.setRightStick(new XYPair(0, 1.0));
+        gamepad.setLeftStick(new XYPair(0, -.5));
+        gamepad.setRightStick(new XYPair(0, .5));
         command.execute();
-        assertDrive(-1.0, 1.0, "Expect Motors are all forward when both joysticks are completely forward");
+        assertDrive(-.5, .5, "Expect Motors are all forward when both joysticks are completely forward");
 
     }
 }

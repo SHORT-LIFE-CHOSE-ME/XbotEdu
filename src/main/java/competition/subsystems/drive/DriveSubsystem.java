@@ -5,6 +5,7 @@ import javax.inject.Inject;
 import javax.inject.Singleton;
 
 import competition.electrical_contract.ElectricalContract;
+import competition.operator_interface.OperatorInterface;
 import xbot.common.controls.actuators.XCANTalon;
 import xbot.common.controls.actuators.XCANTalon.XCANTalonFactory;
 import xbot.common.injection.electrical_contract.CANTalonInfo;
@@ -17,6 +18,16 @@ public class DriveSubsystem extends BaseDriveSubsystem {
 
     public final XCANTalon frontLeft;
     public final XCANTalon frontRight;
+
+    OperatorInterface operatorInterface;
+
+
+
+
+
+
+
+
 
     private final double simulatedEncoderFactor = 256.0 * 39.3701; //256 "ticks" per meter, and ~39 inches in a meter
 
@@ -32,19 +43,33 @@ public class DriveSubsystem extends BaseDriveSubsystem {
 
         frontLeft.createTelemetryProperties(this.getPrefix(), "frontLeft");
         frontRight.createTelemetryProperties(this.getPrefix(), "frontRight");
+        togglePrecisionMode();
 
         this.register();
     }
 
+    private void togglePrecisionMode() {
+    }
+
     public void tankDrive(double leftPower, double rightPower) {
-        // You'll need to take these power values and assign them to all of the motors.
+        // You'll need to take these power values and assign them to the motors.
         // As
         // an example, here is some code that has the frontLeft motor to spin according
         // to
         // the value of leftPower:
         frontLeft.simpleSet(leftPower);
+        frontRight.simpleSet(rightPower);
+
+
     }
-    
+    public void arcadeDrive(double leftPower, double rightPower) {
+
+        frontLeft.simpleSet(leftPower);
+        frontRight.simpleSet(rightPower);
+
+
+
+    }
     @Override
     public void periodic() {
         super.periodic();

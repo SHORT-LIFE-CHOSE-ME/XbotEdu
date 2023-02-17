@@ -2,6 +2,7 @@ package competition.subsystems.drive.commands;
 
 import javax.inject.Inject;
 
+//import competition.operator_interface.OperatorInterface;
 import xbot.common.command.BaseCommand;
 import competition.subsystems.drive.DriveSubsystem;
 
@@ -30,6 +31,7 @@ public class TogglePrecisionDriveCommand extends BaseCommand {
         // the current mode.
         // In all of these cases you'll need to have the mode somehow affect the
         // TankDrive method.
+
     }
 
     @Override

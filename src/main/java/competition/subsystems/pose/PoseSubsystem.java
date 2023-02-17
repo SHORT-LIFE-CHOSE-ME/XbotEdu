@@ -11,7 +11,9 @@ import xbot.common.subsystems.pose.BasePoseSubsystem;
 @Singleton
 public class PoseSubsystem extends BasePoseSubsystem {
 
+
     private final DriveSubsystem drive;
+    PoseSubsystem pose;
 
     public double scalingFactorFromTicksToInches = 1.0 / 256.0;
     
@@ -19,6 +21,7 @@ public class PoseSubsystem extends BasePoseSubsystem {
     public PoseSubsystem(XGyroFactory gyroFactory, PropertyFactory propManager, DriveSubsystem drive) {
         super(gyroFactory, propManager);
         this.drive = drive;
+
     }
 
     public double getPosition() {
@@ -26,6 +29,8 @@ public class PoseSubsystem extends BasePoseSubsystem {
     }
 
     @Override
+
+
     protected double getLeftDriveDistance() {
         return drive.frontLeft.getSelectedSensorPosition(0) * scalingFactorFromTicksToInches;
     }
@@ -33,6 +38,7 @@ public class PoseSubsystem extends BasePoseSubsystem {
     @Override
     protected double getRightDriveDistance() {
         return drive.frontRight.getSelectedSensorPosition(0) * scalingFactorFromTicksToInches;
+
     }
 
 }

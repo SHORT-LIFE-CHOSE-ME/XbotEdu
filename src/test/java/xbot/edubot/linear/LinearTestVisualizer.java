@@ -7,7 +7,6 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JSlider;
 import javax.swing.JSplitPane;
-
 public class LinearTestVisualizer {
     
     private JFrame frmLinearTestVisualizer;
@@ -39,7 +38,6 @@ public class LinearTestVisualizer {
         frmLinearTestVisualizer.setBounds(100, 100, 800, 400);
         frmLinearTestVisualizer.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frmLinearTestVisualizer.getContentPane().setLayout(new BoxLayout(frmLinearTestVisualizer.getContentPane(), BoxLayout.Y_AXIS));
-        
         JSplitPane splitPane = new JSplitPane();
         frmLinearTestVisualizer.getContentPane().add(splitPane);
         
@@ -56,7 +54,7 @@ public class LinearTestVisualizer {
         
         startTest();
     }
-        
+
     private void startTest() {
         DriveToPositionCommandTest testToRun = new DriveToPositionCommandTest();
         testToRun.setUp();
@@ -77,7 +75,7 @@ public class LinearTestVisualizer {
         /*
         
         
-        currentTestEnvironment.setAsAsync((BaseOrientationEngineTest.RotationEnvironmentState envState) -> {
+      // currentTestEnvironment.setAsAsync((BaseOrientationEngineTest.RotationEnvironmentState envState) -> {
             this.envState = envState;
             vizPanel.updateState(envState);
             vizPanel.repaint();

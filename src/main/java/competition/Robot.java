@@ -1,6 +1,7 @@
 
 package competition;
 
+
 import competition.injection.components.BaseRobotComponent;
 import competition.injection.components.DaggerRobotComponent;
 import competition.injection.components.DaggerSimulationComponent;
@@ -11,6 +12,7 @@ import xbot.common.command.BaseRobot;
 import xbot.common.injection.components.BaseComponent;
 import xbot.common.math.FieldPose;
 import xbot.common.subsystems.pose.BasePoseSubsystem;
+
 
 public class Robot extends BaseRobot {
 

@@ -98,6 +98,7 @@ public class DriveToPositionCommandTest extends BaseDriveTest {
         
         DriveToPositionCommand command = new DriveToPositionCommand(this.drive, this.pose);
         command.setTargetPosition(target_distance);
+
         
         command.initialize();
                 
