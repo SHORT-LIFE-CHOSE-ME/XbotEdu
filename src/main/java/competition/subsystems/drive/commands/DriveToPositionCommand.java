@@ -27,6 +27,8 @@ public class DriveToPositionCommand extends BaseCommand {
 
     public double oldPose;
 
+    public double velocity;
+
 
 
     @Inject
@@ -35,7 +37,7 @@ public class DriveToPositionCommand extends BaseCommand {
         this.pose = pose;
 
     }   //5 = TargetPose
-        // 2 = current Pose
+       // 2 = current Pose
 
     public void setTargetPosition(double position) {
         // This method will be called by the test, and will give you a goal distance.
@@ -53,27 +55,26 @@ public class DriveToPositionCommand extends BaseCommand {
     public void execute() {
         double CurrentPose = pose.getPosition();
         double error = TargetPose - CurrentPose;
-        double power = error * .02;
+        double power = .2692 * error -  .2985 * velocity;
         drive.arcadeDrive(power , power);
         double speed = CurrentPose - oldPose;
-        double velocity = 0;
-
-        power= 2 * error - 1 * velocity;
 
         oldPose = CurrentPose;
         velocity = oldPose;
 
-
     }
     @Override public boolean isFinished()
     {
-        if (TargetPose == pose.getPosition())
+        if (TargetPose < pose.getPosition())
         {
             return true;
         }
+
         return false;
-    }
-}
+
+    }}
+
+
 
 
 
